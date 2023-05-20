@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "603454491480",
+    "project_id": "crudlogin-5a907",
+    "storage_bucket": "crudlogin-5a907.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:603454491480:android:0bce30da673af8d30f332d",
+        "android_client_info": {
+          "package_name": "com.example.tarealogin"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "603454491480-sojr7vmu7gpjcc9pisme53272dpne7tm.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.tarealogin",
+            "certificate_hash": "e1c61c8539f9a05a4f13170006fd70c55a733e12"
+          }
+        },
+        {
+          "client_id": "603454491480-mctuugt5is07947adtph2vouiuir0vep.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCA_Gdynmg3oeS7GXlpNWKc1xL7kAYiSwo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "603454491480-mctuugt5is07947adtph2vouiuir0vep.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

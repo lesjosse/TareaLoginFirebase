@@ -50,9 +50,25 @@ public class Registrar extends AppCompatActivity implements View.OnClickListener
                 String usuario = us.getText().toString().trim();
                 String password = pas.getText().toString().trim();
 
-                if (nombre.isEmpty() || apellido.isEmpty() || usuario.isEmpty() || password.isEmpty()) {
-                    Toast.makeText(this, "ERROR: Campos vacíos", Toast.LENGTH_LONG).show();
-                } else {
+              //  if (nombre.isEmpty() || apellido.isEmpty() || usuario.isEmpty() || password.isEmpty()) {
+                 //   Toast.makeText(this, "ERROR: Campos vacíos", Toast.LENGTH_LONG).show();
+                //}
+                if (nombre.isEmpty()) {
+                    EditText campoUsuario = findViewById(R.id.RegNombre);
+                    campoUsuario.setError("Campo de nombre vacío");
+                }
+                if (nombre.isEmpty()) {
+                    EditText campoUsuario = findViewById(R.id.RegApellido);
+                    campoUsuario.setError("Campo de apellido vacío");
+                }
+                if (nombre.isEmpty()) {
+                    EditText campoUsuario = findViewById(R.id.RegUser);
+                    campoUsuario.setError("Campo de usuario vacío");
+                }
+                if (nombre.isEmpty()) {
+                    EditText campoUsuario = findViewById(R.id.RegPass);
+                    campoUsuario.setError("Campo de contraseña vacío");
+                }else {
                     Usuario u = new Usuario(nombre, apellido, usuario, password);
                     registrarUsuario(u);
                 }
@@ -76,11 +92,15 @@ public class Registrar extends AppCompatActivity implements View.OnClickListener
         String password = usuario.getPassword();
         String correo = usuario.getUsuario();
         if (!isValidUser(correo)) {
-            Toast.makeText(this, "ERROR: Dirección de correo electrónico inválida", Toast.LENGTH_LONG).show();
+           // Toast.makeText(this, "ERROR: Dirección de correo electrónico inválida", Toast.LENGTH_LONG).show();
+            EditText campoUsuario = findViewById(R.id.RegUser);
+            campoUsuario.setError("ERROR: Dirección de correo electrónico inválida");
             return;
         }
         if (password.length() < 6) {
-            Toast.makeText(this, "La contraseña debe tener al menos 6 caracteres", Toast.LENGTH_LONG).show();
+           // Toast.makeText(this, "La contraseña debe tener al menos 6 caracteres", Toast.LENGTH_LONG).show();
+            EditText campoUsuario = findViewById(R.id.RegPass);
+            campoUsuario.setError("La contraseña debe tener al menos 6 caracteres");
             return;
         }
         if (TextUtils.isEmpty(correo) || TextUtils.isEmpty(password)) {

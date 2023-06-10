@@ -1,9 +1,19 @@
 package com.example.tarealogin;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+
+import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.ListView;
+import android.widget.Toast;
+
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -12,9 +22,10 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 
-public class Mostrar extends AppCompatActivity {
+public class Mostrar extends AppCompatActivity implements View.OnClickListener {
 
     ListView lista;
+    Button btnMosAtras;
     DatabaseReference database;
 
     @Override
@@ -22,7 +33,10 @@ public class Mostrar extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.mostrar);
 
+
         lista = findViewById(R.id.lista);
+        btnMosAtras = findViewById(R.id.btnMosAtras);
+        btnMosAtras.setOnClickListener(this);
         database = FirebaseDatabase.getInstance().getReference().child("usuarios");
         ArrayList<String> list = new ArrayList<>();
 
@@ -46,4 +60,14 @@ public class Mostrar extends AppCompatActivity {
             }
         });
     }
+
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()) {
+            case R.id.btnMosAtras:
+                finish();
+                break;
+        }
+    }
 }
+

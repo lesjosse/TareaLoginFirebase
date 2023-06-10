@@ -42,9 +42,17 @@ public class Main extends AppCompatActivity implements View.OnClickListener {
             case R.id.btnEntrar:
                 String u = user.getText().toString();
                 String p = pass.getText().toString();
-                if (TextUtils.isEmpty(u) || TextUtils.isEmpty(p)) {
-                    Toast.makeText(this, "ERROR: Campos vacíos", Toast.LENGTH_LONG).show();
-                } else {
+             //   if (TextUtils.isEmpty(u) || TextUtils.isEmpty(p)) {
+             //       Toast.makeText(this, "ERROR: Campos vacíos", Toast.LENGTH_LONG).show();
+             //   }
+                if (u.isEmpty()) {
+                    EditText campoUsuario = findViewById(R.id.User);
+                    campoUsuario.setError("Campo de usuario vacío");
+                }
+                if (p.isEmpty()) {
+                    EditText campoUsuario = findViewById(R.id.Pass);
+                    campoUsuario.setError("Campo de contraseña vacío");
+                }else {
                     firebaseAuth.signInWithEmailAndPassword(u, p)
                             .addOnCompleteListener(task -> {
                                 if (task.isSuccessful()) {
@@ -54,7 +62,6 @@ public class Main extends AppCompatActivity implements View.OnClickListener {
                                         Toast.makeText(this, "Inicio de sesión exitoso", Toast.LENGTH_LONG).show();
                                         Intent intent = new Intent(Main.this, Inicio.class);
                                         intent.putExtra("Id", (userId));
-
                                         startActivity(intent);
                                         finish();
                                     }

@@ -9,7 +9,6 @@ public class Usuario {
     String nombre, apellido, usuario, password;
 
     public Usuario() {
-
     }
 
     public Usuario(String nombre, String apellido, String usuario, String password) {

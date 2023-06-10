@@ -80,9 +80,29 @@ public class Editar extends AppCompatActivity implements View.OnClickListener {
                 String nuevoApellido = ediApellido.getText().toString();
 
 
-                if (nuevoUsuario.isEmpty() || nuevaPass.isEmpty() || nuevoNombre.isEmpty() || nuevoApellido.isEmpty()) {
-                    Toast.makeText(this, "ERROR: Campos vacíos", Toast.LENGTH_LONG).show();
-                } else {
+                if (nuevoUsuario.isEmpty()) {
+                    EditText campoUsuario = findViewById(R.id.EdiUser);
+                    campoUsuario.setError("Campo de usuario vacío");
+                }
+
+                if (nuevaPass.isEmpty()) {
+                    EditText campoPassword = findViewById(R.id.EdiPass);
+                    campoPassword.setError("Campo de contraseña vacío");
+                }
+
+                if (nuevoNombre.isEmpty()) {
+                    EditText campoNombre = findViewById(R.id.EdiNombre);
+                    campoNombre.setError("Campo de nombre vacío");
+                }
+
+                if (nuevoApellido.isEmpty()) {
+                    EditText campoApellido = findViewById(R.id.EdiApellido);
+                    campoApellido.setError("Campo de apellido vacío");
+                }
+
+                //  if (nuevoUsuario.isEmpty() || nuevaPass.isEmpty() || nuevoNombre.isEmpty() || nuevoApellido.isEmpty()) {
+                //    Toast.makeText(this, "ERROR: Campos vacíos", Toast.LENGTH_LONG).show();
+                 else {
                     if (u != null) {
                         u.setUsuario(nuevoUsuario);
                         u.setPassword(nuevaPass);
